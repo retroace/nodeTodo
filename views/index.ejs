@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo App</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100"     rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div class="container">
+  <h2 class="text-center"> ToDo App </h2>
+  <div class="section">
+    <form action ="/addtask" method="POST">
+      <div class="form-group">
+        <label for="newTask">New Task</label>
+        <input class="text-input" type="text" name="newtask" placeholder="add new task">        
+      </div>
+            
+      <button class="btn"> Add Task </button>
+    </form>
+  </div>  
+
+  <div class="d-flex">
+    <div class="section w-50">
+      <h2 class="text-center"> Added Task </h2>
+      <form action="/completetask" method="POST" accept-charset="utf-8">
+        <ul>
+          <% for( var i = 0; i < task.length; i++){ %>
+            <li>
+              <input type="checkbox" name="check" value="<%= task[i] %>" /> <%= task[i] %> 
+            </li>
+          <% } %>
+        </ul>
+        <button class="btn btn-danger" type="submit"> Completed Task </button>
+      </form>
+    </div>
+    
+    <div class="section w-50">
+      <h2 class="text-center"> Completed task </h2>
+      <ul>
+        <% for(var i = 0; i < complete.length; i++){ %>
+          <li><input type="checkbox" checked><%= complete[i] %> </li>
+        <% } %>
+      </ul>
+      
+    </div>
+  </div>
+
+
+
+</div>
+  
+</body>
+</html>
